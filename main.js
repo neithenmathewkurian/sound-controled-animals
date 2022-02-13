@@ -1,6 +1,6 @@
 function startClassification() {
     navigator.mediaDevices.getUserMedia({ audio: true });
-    classifier = ml5.soundClassifier("")
+    classifier = ml5.soundClassifier("https://teachablemachine.withgoogle.com/models/6Pwpk88R9/model.json")
         ;
 
 
@@ -17,7 +17,7 @@ function gotResults(error, results) {
         var confidence = results[0].confidence;
         document.getElementById("result_label").innerHTML = "i can hear-" + sound1;
         document.getElementById("result_confidence").innerHTML = "accuracy-" + confidence.toFixed(3) * 100 + "%";
-        img1 = document.getElementById("cat.jpg");
+        img1 = document.getElementById("img1");
 
         if (sound1 == "barking") {
             img1.src = "doggie.jpg";
